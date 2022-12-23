@@ -6,7 +6,7 @@ function Test() {
 
     const [data, setData] = useState('')
     useEffect(() => {
-        axios.get('http://localhost:5000').then(user => {
+        axios.get('https://test-api-ob7g.onrender.com').then(user => {
             return user.data
         }).then(user => {
             setData(user.message)
