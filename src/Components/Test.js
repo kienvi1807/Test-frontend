@@ -6,17 +6,17 @@ function Test() {
 
     const [data, setData] = useState('')
     useEffect(() => {
-        axios.get('https://test-api-2v8r.onrender.com/').then(user => {
+        axios.get('http://localhost:5000').then(user => {
             return user.data
         }).then(user => {
-            console.log(user)
+            setData(user.message)
         }).catch(err => {
             console.log(err)
         })
     }, [])
 
     return ( 
-        <h1>oke</h1>
+        <h1>{data}</h1>
      );
 }
 
