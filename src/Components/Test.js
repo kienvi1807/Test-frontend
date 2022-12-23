@@ -4,19 +4,25 @@ import axios from 'axios'
 
 function Test() {
 
-    const [data, setData] = useState('')
+    const [data, setData] = useState([])
     useEffect(() => {
-        axios.get('https://test-api-ob7g.onrender.com').then(user => {
-            return user.data
-        }).then(user => {
-            setData(user.message)
+        axios.get('https://test-api-ob7g.onrender.com').then(movie => {
+            return movie.data
+        }).then(movie => {
+            setData(movie)
         }).catch(err => {
             console.log(err)
         })
     }, [])
 
     return ( 
-        <h1>{data}</h1>
+        <>
+            {data.map((movie, index) => {
+                return (
+                    <div key={index}>{movie.name}</div>
+                )
+            })}
+        </>
      );
 }
 
